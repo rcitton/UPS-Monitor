@@ -1,0 +1,155 @@
+[[inputs.snmp]]
+  agents = ["IP/Hostname"]  # Replace with your UPS IP address
+  interval = "60s"
+  timeout = "10s"
+  retries = 3
+  max_repetitions = 10
+  version = 1
+  community = "public"
+  name = "snmp.UPS"
+
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.1.3.0"
+  name = "upsUpTime"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.1.5.0"
+  name = "upsDeviceName"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.1.6.0"
+  name = "upsLocation"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.1.4.0"
+  name = "upsContact"
+#---------
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.1.1.0"
+  name = "upsIdentManufacturer"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.1.2.0"
+  name = "upsIdentModel"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.1.4.0"
+  name = "upsIdentAgentSoftwareVersion"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.1.5.0"
+  name = "upsIdentName"
+
+#--------- upsBattery
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.2.1.0"
+  name = "upsBatteryStatus"
+  # unknown(1),batteryNormal(2),batteryLow(3),batteryDepleted(4)
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.2.2.0"
+  name = "upsSecondsOnBattery"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.2.3.0"
+  name = "upsEstimatedMinutesRemaining"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.2.4.0"
+  name = "upsEstimatedChargeRemaining"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.2.5.0"
+  name = "upsBatteryVoltage"
+
+#--------- upsInput
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.3.3.1.2.1"
+  name = "upsInputFrequency"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.3.3.1.3.1"
+  name = "upsInputVoltage"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.3.3.1.4.1"
+  name = "upsInputCurrent"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.3.3.1.5.1"
+  name = "upsInputTruePower"
+
+#--------- upsOutput
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.4.1.0"
+  name = "upsOutputSource"
+  # other(1),none(2),normal(3),bypass(4),battery(5),booster(6),reducer(7)
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.4.2.0"
+  name = "upsOutputFrequency"
+  # UNITS "0.1 Hertz"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.4.4.1.2.1"
+  name = "upsOutputVoltage"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.4.4.1.3.1"
+  name = "upsOutputCurrent"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.4.4.1.4.1"
+  name = "upsOutputPower"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.4.4.1.5.1"
+  name = "upsOutputPercentLoad"
+
+#--------- upsAlarm
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.6.1.0"
+  name = "upsAlarmsPresent"
+
+#--------- upsTest
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.7.3.0"
+  name = "upsTestResultsSummary"
+  # donePass(1),doneWarning(2),doneError(3),aborted(4),inProgress(5),noTestsInitiated(6)
+
+#--------- upsConfig
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.9.2.0"
+  name = "upsConfigInputFreq"
+  # (UNITS "0.1 Hertz")
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.9.3.0"
+  name = "upsConfigOutputVoltage"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.9.4.0"
+  name = "upsConfigOutputFreq"
+  # UNITS "0.1 Hertz"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.9.5.0"
+  name = "upsConfigOutputVA"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.9.6.0"
+  name = "upsConfigOutputPower"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.9.8.0"
+  name = "upsConfigAudibleStatus"
+  # disabled(1),enabled(2),muted(3)
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.9.9.0"
+  name = "upsConfigLowVoltageTransferPoint"
+
+[[inputs.snmp.field]]
+  oid = "1.3.6.1.2.1.33.1.9.10.0"
+  name = "upsConfigHighVoltageTransferPoint"

@@ -1,0 +1,80 @@
+
+# snmpwalk -c public -v 1 <UPS host IP>
+iso.3.6.1.2.1.1.1.0 = STRING: "UPS Local"
+iso.3.6.1.2.1.1.2.0 = OID: iso.3.6.1.4.1.3808
+iso.3.6.1.2.1.1.3.0 = Timeticks: (7663772) 21:17:17.72
+iso.3.6.1.2.1.1.4.0 = STRING: "......"          --->> contact
+iso.3.6.1.2.1.1.5.0 = STRING: "......"          --->> device name
+iso.3.6.1.2.1.1.6.0 = STRING: "......"          --->> location
+iso.3.6.1.2.1.1.7.0 = INTEGER: 72
+
+iso.3.6.1.2.1.11.1.0 = Counter32: 77
+iso.3.6.1.2.1.11.3.0 = Counter32: 0
+iso.3.6.1.2.1.11.4.0 = Counter32: 6
+iso.3.6.1.2.1.11.5.0 = Counter32: 0
+iso.3.6.1.2.1.11.6.0 = Counter32: 0
+iso.3.6.1.2.1.11.30.0 = INTEGER: 2
+iso.3.6.1.2.1.11.31.0 = Counter32: 0
+iso.3.6.1.2.1.11.32.0 = Counter32: 0
+
+upsIdent
+iso.3.6.1.2.1.33.1.1.1.0 = STRING: "CPS"                --->>> upsIdentManufacturer
+iso.3.6.1.2.1.33.1.1.2.0 = STRING: "850"                --->>> upsIdentModel
+iso.3.6.1.2.1.33.1.1.3.0 = STRING: "0x50 0x45 0x30 0x31 0x39 0x39 0x34 0x2E 0x30 0x30 0x31 "     --->>>  upsIdentUPSSoftwareVersion
+iso.3.6.1.2.1.33.1.1.4.0 = STRING: "1.2.2"              --->>> upsIdentAgentSoftwareVersion
+iso.3.6.1.2.1.33.1.1.5.0 = STRING: "......"             --->>> upsIdentName
+
+upsBattery
+iso.3.6.1.2.1.33.1.2.1.0 = INTEGER: 2                   --->>> upsBatteryStatus unknown(1),batteryNormal(2),batteryLow(3),batteryDepleted(4)
+iso.3.6.1.2.1.33.1.2.2.0 = Gauge32: 0                   --->>> upsSecondsOnBattery
+iso.3.6.1.2.1.33.1.2.3.0 = Gauge32: 40                  ---->> upsEstimatedMinutesRemaining
+iso.3.6.1.2.1.33.1.2.4.0 = INTEGER: 100                 ---->> upsEstimatedChargeRemaining
+iso.3.6.1.2.1.33.1.2.5.0 = Gauge32: 135                 ---->> upsBatteryVoltage
+
+upsInput
+iso.3.6.1.2.1.33.1.3.2.0 = Gauge32: 1                   --->>> upsInputNumLines
+iso.3.6.1.2.1.33.1.3.3.1.1.1 = INTEGER: 1               --->>> upsInputLineIndex
+iso.3.6.1.2.1.33.1.3.3.1.2.1 = Gauge32: 500             --->>> upsInputFrequency
+iso.3.6.1.2.1.33.1.3.3.1.3.1 = Gauge32: 239             --->>> upsInputVoltage
+iso.3.6.1.2.1.33.1.3.3.1.4.1 = Gauge32:                 --->>> upsInputCurrent
+iso.3.6.1.2.1.33.1.3.3.1.5.1 = Gauge32: 0               --->>> upsInputTruePower
+
+upsOutput
+iso.3.6.1.2.1.33.1.4.1.0 = Gauge32: 3                   --->>> upsOutputSource other(1),none(2),normal(3),bypass(4),battery(5),booster(6),reducer(7)}
+iso.3.6.1.2.1.33.1.4.2.0 = Gauge32: 500                 ---->> upsOutputFrequency UNITS "0.1 Hertz"
+iso.3.6.1.2.1.33.1.4.3.0 = Gauge32: 1                   ---->> upsOutputNumLines
+iso.3.6.1.2.1.33.1.4.4.1.1.1 = INTEGER: 1               ---->> upsOutputLineIndex
+iso.3.6.1.2.1.33.1.4.4.1.2.1 = Gauge32: 237             --->>> upsOutputVoltage
+iso.3.6.1.2.1.33.1.4.4.1.3.1 = Gauge32: 0               --->>> upsOutputCurrent
+iso.3.6.1.2.1.33.1.4.4.1.4.1 = Gauge32: 0               --->>> upsOutputPower
+iso.3.6.1.2.1.33.1.4.4.1.5.1 = Gauge32: 6               ---->> upsOutputPercentLoad
+
+upsBypass
+iso.3.6.1.2.1.33.1.5.2.0 = Gauge32: 0                   ---->> upsBypassNumLines
+
+upsAlarm
+iso.3.6.1.2.1.33.1.6.1.0 = Gauge32: 0                   ---->> upsAlarmsPresent "The present number of active alarm conditions."
+
+upsTest
+iso.3.6.1.2.1.33.1.7.1.0 = OID: iso.3.6.1.2.1.33.1.7.7.5
+iso.3.6.1.2.1.33.1.7.2.0 = Gauge32: 0
+iso.3.6.1.2.1.33.1.7.3.0 = INTEGER: 1                   ---->> upsTestResultsSummary donePass(1),doneWarning(2),doneError(3),aborted(4),inProgress(5),noTestsInitiated(6)
+iso.3.6.1.2.1.33.1.7.4.0 = ""                           ---->> upsTestResultsDetail
+iso.3.6.1.2.1.33.1.7.5.0 = Timeticks: (0) 0:00:00.00    --->>> upsTestStartTime
+iso.3.6.1.2.1.33.1.7.6.0 = Timeticks: (0) 0:00:00.00    --->>> upsTestElapsedTime
+
+upsControl
+iso.3.6.1.2.1.33.1.8.1.0 = INTEGER: 2                   --->>> upsShutdownType output(1),system(2)
+iso.3.6.1.2.1.33.1.8.2.0 = INTEGER: -1                  ---->> upsShutdownAfterDelay
+
+upsConfig
+1.3.6.1.2.1.33.1.9.2.0 = Gauge32: 500                 --->>> upsConfigInputFreq (UNITS "0.1 Hertz")
+1.3.6.1.2.1.33.1.9.3.0 = Gauge32: 237                 --->>> upsConfigOutputVoltage
+1.3.6.1.2.1.33.1.9.4.0 = Gauge32: 500                 --->>> upsConfigOutputFreq UNITS "0.1 Hertz"
+1.3.6.1.2.1.33.1.9.5.0 = Gauge32: 0                   --->>> upsConfigOutputVA
+1.3.6.1.2.1.33.1.9.6.0 = Gauge32: 0                   --->>> upsConfigOutputPower
+1.3.6.1.2.1.33.1.9.8.0 = INTEGER: 2                   --->>> upsConfigAudibleStatus disabled(1),enabled(2),muted(3)
+1.3.6.1.2.1.33.1.9.9.0 = Gauge32: 162                 --->>> upsConfigLowVoltageTransferPoint
+1.3.6.1.2.1.33.1.9.10.0 = Gauge32: 290                --->>> upsConfigHighVoltageTransferPoint
+
+
